@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 import { kentLocations } from '@/lib/locations'
 import { roofvueServices } from '@/lib/services'
 
-// SEO: Comprehensive sitemap covering all 286 pages ensures complete Google crawl
-// of all Kent location pages, maximising organic visibility across 54 towns × 4 services
-const SITE = 'https://roofvue.co.uk'
+// SEO: Pull site URL from env so the same codebase works on any domain.
+// Set NEXT_PUBLIC_SITE_URL in Vercel → Settings → Environment Variables.
+const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

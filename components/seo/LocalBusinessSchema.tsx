@@ -17,6 +17,7 @@ export default function LocalBusinessSchema({
   const phone = process.env.NEXT_PUBLIC_PHONE ?? ''
   const email = process.env.NEXT_PUBLIC_EMAIL ?? 'info@roofvue.co.uk'
   const postcode = process.env.NEXT_PUBLIC_POSTCODE ?? 'ME14 1XX'
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')
 
   const geo = overrideGeo ?? { lat: 51.272, lng: 0.529 }
   const addressLocality = overrideLocation ?? 'Maidstone'
@@ -25,13 +26,13 @@ export default function LocalBusinessSchema({
     '@context': 'https://schema.org',
     // SEO: Dual @type array — LocalBusiness + RoofingContractor signals service category
     '@type': ['LocalBusiness', 'RoofingContractor'],
-    '@id': 'https://roofvue.co.uk/#business',
+    '@id': `${siteUrl}/#business`,
     name: 'RoofVue',
     description: 'Professional drone roof surveys and inspections across Kent, UK',
-    url: 'https://roofvue.co.uk',
+    url: siteUrl,
     telephone: phone,
     email,
-    image: 'https://roofvue.co.uk/images/roofvue-og.jpg',
+    image: `${siteUrl}/images/roofvue-og.jpg`,
     address: {
       '@type': 'PostalAddress',
       addressLocality,
@@ -69,7 +70,7 @@ export default function LocalBusinessSchema({
           '@type': 'Service',
           name: s.name,
           description: s.tagline,
-          url: `https://roofvue.co.uk/services/${s.slug}`,
+          url: `${siteUrl}/services/${s.slug}`,
         },
         price: s.price.replace('from £', ''),
         priceCurrency: 'GBP',
@@ -84,7 +85,7 @@ export default function LocalBusinessSchema({
     priceRange: '££',
     currenciesAccepted: 'GBP',
     // SEO: sameAs with canonical URL reinforces brand entity in Knowledge Graph
-    sameAs: ['https://roofvue.co.uk'],
+    sameAs: [siteUrl],
     mainEntityOfPage: pageUrl,
   }
 

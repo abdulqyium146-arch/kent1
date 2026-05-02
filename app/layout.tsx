@@ -27,8 +27,10 @@ export const viewport: Viewport = {
 
 // SEO: Base metadata — title template ensures every page gets "| RoofVue Kent" suffix,
 // metadataBase enables absolute URL resolution for OG images and canonical tags
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://roofvue.co.uk'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'RoofVue | Drone Roof Surveys Kent',
     template: '%s | RoofVue Kent',
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     'landlord roof inspection Kent',
   ],
   alternates: {
-    canonical: 'https://roofvue.co.uk',
+    canonical: SITE_URL,
   },
   openGraph: {
     type: 'website',
@@ -62,13 +64,13 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'RoofVue',
-  url: 'https://roofvue.co.uk',
+  url: SITE_URL,
   description: 'Professional drone roof surveys across Kent, UK',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://roofvue.co.uk/locations/{search_term_string}',
+      urlTemplate: `${SITE_URL}/locations/{search_term_string}`,
     },
     'query-input': 'required name=search_term_string',
   },

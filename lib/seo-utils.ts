@@ -2,7 +2,7 @@ import { kentLocations } from '@/lib/locations'
 import type { KentLocation } from '@/lib/locations'
 import type { RoofVueService } from '@/lib/services'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://roofvue.co.uk'
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')
 
 // SEO: Single canonical URL builder — ensures no trailing-slash or protocol divergence
 export function getCanonicalUrl(path: string): string {

@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
 
+const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')
+
 // SEO: robots.ts blocks crawl of internal/admin paths that would waste crawl budget
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -10,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/', '/admin/', '/dashboard/'],
       },
     ],
-    sitemap: 'https://roofvue.co.uk/sitemap.xml',
-    host: 'https://roofvue.co.uk',
+    sitemap: `${SITE}/sitemap.xml`,
+    host: SITE,
   }
 }
