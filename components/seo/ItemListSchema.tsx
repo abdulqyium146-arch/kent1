@@ -17,7 +17,7 @@ export default function ItemListSchema({ locations }: ItemListSchemaProps) {
       '@type': 'ListItem',
       position: index + 1,
       name: `Drone Roof Survey in ${loc.name}, Kent`,
-      url: `https://roofvue.co.uk/locations/${loc.slug}`,
+      url: `${(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')}/locations/${loc.slug}`,
     })),
   }
 

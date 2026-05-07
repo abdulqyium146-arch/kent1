@@ -32,7 +32,7 @@ export default function ServiceSchema({ service, locationName }: ServiceSchemaPr
     serviceType: service.schemaServiceType,
     provider: {
       '@type': 'LocalBusiness',
-      '@id': 'https://roofvue.co.uk/#business',
+      '@id': `${(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')}/#business`,
       name: 'RoofVue',
     },
     areaServed,
@@ -43,7 +43,7 @@ export default function ServiceSchema({ service, locationName }: ServiceSchemaPr
       description: service.price,
       availability: 'https://schema.org/InStock',
     },
-    termsOfService: 'https://roofvue.co.uk/terms',
+    termsOfService: `${(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')}/terms`,
   }
 
   return (

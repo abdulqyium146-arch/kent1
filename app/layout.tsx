@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema'
+import OrganizationSchema from '@/components/seo/OrganizationSchema'
 import NAPBlock from '@/components/ui/NAPBlock'
 
 const inter = Inter({
@@ -81,7 +82,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB" className={`${inter.variable} ${plusJakarta.variable}`}>
       <head>
         {/* SEO: LocalBusiness schema on every page — core local SEO signal */}
-        <LocalBusinessSchema pageUrl="https://roofvue.co.uk" />
+        <LocalBusinessSchema pageUrl="/" />
+        {/* SEO: Organization schema — establishes entity authority with knowsAbout + hasCredential */}
+        <OrganizationSchema />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}

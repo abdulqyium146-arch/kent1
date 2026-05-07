@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   description:
     'RoofVue covers every town in Kent. Professional drone roof surveys in Maidstone, Canterbury, Folkestone, Dover, Tunbridge Wells and 50+ more Kent locations.',
   alternates: {
-    canonical: 'https://roofvue.co.uk/locations',
+    canonical: '/locations',
   },
   openGraph: {
     title: 'Drone Roof Surveys Across Kent | All Areas Covered | RoofVue',
     description:
       'RoofVue covers every town in Kent. Drone roof surveys from £149 with 48hr PDF reports.',
-    url: 'https://roofvue.co.uk/locations',
+    url: '/locations',
   },
 }
 

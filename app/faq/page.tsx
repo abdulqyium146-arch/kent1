@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     'Answers to common questions about drone roof surveys in Kent. RoofVue covers all Kent towns — no scaffolding, CAA-licensed, 48hr reports.',
   alternates: {
-    canonical: 'https://roofvue.co.uk/faq',
+    canonical: '/faq',
   },
 }
 

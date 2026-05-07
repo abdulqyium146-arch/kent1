@@ -23,6 +23,12 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(self)',
           },
+          // SEO: HSTS forces HTTPS — required for Google's "secure" ranking signal
+          // max-age=63072000 = 2 years (HSTS preload list minimum is 1 year)
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
         ],
       },
       {

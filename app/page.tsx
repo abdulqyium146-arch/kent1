@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   description:
     'Professional drone roof surveys across Kent. Safe aerial inspections in Maidstone, Canterbury, Folkestone & 50+ Kent towns. CAA-licensed pilots. PDF report in 48hrs.',
   alternates: {
-    canonical: 'https://roofvue.co.uk/',
+    canonical: '/',
   },
   openGraph: {
     title: 'Drone Roof Surveys Kent | No Ladders, 48hr Reports | RoofVue',
     description:
       'Professional drone roof surveys across Kent. CAA-licensed pilots. No scaffolding needed. PDF report within 48hrs.',
-    url: 'https://roofvue.co.uk/',
+    url: '/',
   },
 }
 
@@ -78,7 +78,7 @@ export default function HomePage() {
   return (
     <>
       {/* SEO: Page-level schemas supplement the global layout schemas */}
-      <LocalBusinessSchema pageUrl="https://roofvue.co.uk" />
+      <LocalBusinessSchema pageUrl="/" />
       <FAQSchema faqs={faqs} />
       <BreadcrumbSchema items={[{ name: 'Home', url: '/' }]} />
 
@@ -95,7 +95,7 @@ export default function HomePage() {
               Drone Roof Surveys{' '}
               <span className="text-accent-400">Across Kent</span>
             </h1>
-            <p className="text-xl text-brand-100 mb-8 leading-relaxed">
+            <p className="speakable-intro text-xl text-brand-100 mb-8 leading-relaxed">
               CAA-licensed drone inspections — no ladders, no scaffolding. Covering all of Kent
               from Maidstone to Canterbury, Folkestone to Dartford. PDF report within 48 hours.
             </p>

@@ -34,16 +34,14 @@ export async function generateMetadata({
 
   const title = generateLocationTitle(location)
   const description = generateLocationMetaDescription(location)
-  const canonicalUrl = `https://roofvue.co.uk/locations/${location.slug}`
-
   return {
     title,
     description,
-    alternates: { canonical: canonicalUrl },
+    alternates: { canonical: `/locations/${location.slug}` },
     openGraph: {
       title,
       description,
-      url: canonicalUrl,
+      url: `/locations/${location.slug}`,
     },
   }
 }
@@ -66,7 +64,7 @@ export default function LocationPage({ params }: { params: { location: string } 
       <LocalBusinessSchema
         overrideGeo={{ lat: location.lat, lng: location.lng }}
         overrideLocation={location.name}
-        pageUrl={`https://roofvue.co.uk/locations/${location.slug}`}
+        pageUrl={`/locations/${location.slug}`}
       />
       <FAQSchema faqs={faqs} />
       <BreadcrumbSchema items={breadcrumbs} />
@@ -87,7 +85,7 @@ export default function LocationPage({ params }: { params: { location: string } 
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             Drone Roof Survey in {location.name}, Kent
           </h1>
-          <p className="text-brand-100 text-lg leading-relaxed max-w-2xl">
+          <p className="speakable-intro text-brand-100 text-lg leading-relaxed max-w-2xl">
             Professional CAA-licensed drone roof inspections in {location.name}. No ladders, no
             scaffolding — just a detailed aerial survey and a PDF report within 48 hours.
           </p>

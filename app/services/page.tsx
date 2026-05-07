@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     'Four specialist drone roof survey services for Kent homeowners, buyers and landlords. From £149 — Drone Roof Survey, Condition Reports, Pre-Purchase Surveys and Landlord Inspections.',
   alternates: {
-    canonical: 'https://roofvue.co.uk/services',
+    canonical: '/services',
   },
 }
 

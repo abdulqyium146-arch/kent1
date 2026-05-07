@@ -38,13 +38,11 @@ export async function generateMetadata({
   // SEO: Unique title and description per location+service combo — 216 unique meta pairs
   const title = generateLocationTitle(location, service)
   const description = generateLocationMetaDescription(location, service)
-  const canonicalUrl = `https://roofvue.co.uk/locations/${location.slug}/${service.slug}`
-
   return {
     title,
     description,
-    alternates: { canonical: canonicalUrl },
-    openGraph: { title, description, url: canonicalUrl },
+    alternates: { canonical: `/locations/${location.slug}/${service.slug}` },
+    openGraph: { title, description, url: `/locations/${location.slug}/${service.slug}` },
   }
 }
 
@@ -71,7 +69,7 @@ export default function LocationServicePage({
       <LocalBusinessSchema
         overrideGeo={{ lat: location.lat, lng: location.lng }}
         overrideLocation={location.name}
-        pageUrl={`https://roofvue.co.uk/locations/${location.slug}/${service.slug}`}
+        pageUrl={`/locations/${location.slug}/${service.slug}`}
       />
       <ServiceSchema service={service} locationName={location.name} />
       <FAQSchema faqs={faqs} />

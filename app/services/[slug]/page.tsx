@@ -28,11 +28,11 @@ export async function generateMetadata({
   return {
     title: `${service.name} Kent | RoofVue Drone Roof Inspections`,
     description: service.metaDescription,
-    alternates: { canonical: `https://roofvue.co.uk/services/${service.slug}` },
+    alternates: { canonical: `/services/${service.slug}` },
     openGraph: {
       title: `${service.name} Kent | RoofVue`,
       description: service.metaDescription,
-      url: `https://roofvue.co.uk/services/${service.slug}`,
+      url: `/services/${service.slug}`,
     },
   }
 }
@@ -64,7 +64,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
           {/* SEO: H1 = "[service.name] in Kent" — primary keyword for this service page */}
           <h1 className="text-3xl md:text-5xl font-bold mb-4">{service.name} in Kent</h1>
-          <p className="text-brand-100 text-xl max-w-2xl leading-relaxed">{service.tagline}</p>
+          <p className="speakable-intro text-brand-100 text-xl max-w-2xl leading-relaxed">{service.tagline}</p>
         </div>
       </section>
 
@@ -83,7 +83,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 <dl className="space-y-3 text-sm">
                   <div>
                     <dt className="text-slate-500 font-medium">Price</dt>
-                    <dd className="text-2xl font-bold text-slate-900">{service.price}</dd>
+                    <dd className="speakable-price text-2xl font-bold text-slate-900">{service.price}</dd>
                   </div>
                   <div>
                     <dt className="text-slate-500 font-medium">Duration</dt>
