@@ -9,6 +9,7 @@ import ServiceCard from '@/components/ui/ServiceCard'
 import { roofvueServices } from '@/lib/services'
 import { getHomepageFAQs } from '@/lib/faq-data'
 import { BUSINESS } from '@/lib/schema'
+import InstagramReel from '@/components/ui/InstagramReel'
 
 export const metadata: Metadata = {
   title: 'Independent Roof Surveys Kent | RoofVue — Unbiased Expert Assessments',
@@ -301,6 +302,58 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Instagram Reel / E-E-A-T Social Proof ───────────────────── */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Context copy — explains the evidence before they watch */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#833ab4]/10 via-[#fd1d1d]/10 to-[#fcb045]/10 border border-[#fd1d1d]/20 rounded-full px-4 py-1.5 text-sm font-semibold text-[#833ab4] mb-5">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+                @roofvue on Instagram
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5">
+                See a Real Survey<br className="hidden md:block" /> in Action
+              </h2>
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                This is what an independent RoofVue drone roof survey actually looks like. No repair
+                crew waiting in the van — just our CAA-licensed pilot, a drone, and an honest
+                assessment of what your roof needs.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Drone captures every angle, including areas invisible from ground level',
+                  'Surveyor annotates defects live — no guesswork, no hidden damage',
+                  'Full HD PDF report in your inbox within 48 hours',
+                ].map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-slate-700 text-sm">
+                    <span className="w-5 h-5 rounded-full bg-accent-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-accent-600 text-xs font-bold">✓</span>
+                    </span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://www.instagram.com/roofvue/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#833ab4] hover:underline"
+              >
+                Follow @roofvue for more survey footage →
+              </a>
+            </div>
+
+            {/* Embed */}
+            <div className="flex justify-center">
+              <InstagramReel />
+            </div>
           </div>
         </div>
       </section>
