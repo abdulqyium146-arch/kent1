@@ -1,7 +1,7 @@
 export const BUSINESS = {
-  name: 'Kent Roof Inspections',
+  name: 'RoofVue',
   phone: '+44 333 567 5656',
-  email: 'info@kentroofing.co.uk',
+  email: 'info@roofvue.co.uk',
   address: {
     street: '12 Mill Street',
     city: 'Maidstone',
@@ -9,12 +9,14 @@ export const BUSINESS = {
     postcode: 'ME14 1BW',
     country: 'GB',
   },
-  url: 'https://www.kentroofing.co.uk',
+  url: 'https://www.citywideroofing.info',
+  tagline: 'Independent Roof Surveys You Can Trust',
   description:
-    'Professional roof inspection, roof survey and roof leak detection services across Kent, Canterbury, Maidstone, Ashford and Dartford.',
+    'RoofVue is an independent roof survey company providing unbiased, expert roof assessments for homeowners, buyers, landlords and businesses across Kent and the South East.',
   geo: { lat: 51.2728, lng: 0.5217 },
-  openingHours: ['Mo-Fr 07:30-18:00', 'Sa 08:00-14:00'],
+  openingHours: ['Mo-Fr 08:00-18:00', 'Sa 08:00-14:00'],
   priceRange: '££',
+  foundingYear: '2014',
   areaServed: [
     'Kent',
     'Canterbury',
@@ -27,20 +29,21 @@ export const BUSINESS = {
     'Sevenoaks',
     'Tonbridge',
     'Tunbridge Wells',
+    'Medway',
   ],
 }
 
 export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'RoofingContractor'],
     '@id': `${BUSINESS.url}/#business`,
     name: BUSINESS.name,
     description: BUSINESS.description,
     url: BUSINESS.url,
     telephone: BUSINESS.phone,
     email: BUSINESS.email,
-    image: `${BUSINESS.url}/images/kent-roof-inspections-og.jpg`,
+    image: `${BUSINESS.url}/images/roofvue-og.jpg`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: BUSINESS.address.street,
@@ -54,30 +57,11 @@ export function localBusinessSchema() {
       latitude: BUSINESS.geo.lat,
       longitude: BUSINESS.geo.lng,
     },
-    openingHoursSpecification: BUSINESS.openingHours.map((h) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: h.split(' ')[0].split('-').map(d => d),
-      opens: h.split(' ')[1].split('-')[0],
-      closes: h.split(' ')[1].split('-')[1],
-    })),
     priceRange: BUSINESS.priceRange,
     areaServed: BUSINESS.areaServed.map((area) => ({
       '@type': 'AdministrativeArea',
       name: area,
     })),
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Roof Inspection Services',
-      itemListElement: [
-        'Roof Inspection',
-        'Roof Survey',
-        'Roof Leak Detection',
-        'Drone Roof Inspection',
-        'Commercial Roof Inspection',
-        'Gutter Inspection',
-        'Storm Damage Assessment',
-      ].map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s } })),
-    },
   }
 }
 

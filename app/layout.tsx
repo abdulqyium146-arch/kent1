@@ -19,11 +19,15 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: 'swap',
 })
 
-// SEO: Viewport export — ensures proper mobile scaling which affects Core Web Vitals
+// SEO: Viewport + theme-color — amber matches brand, shows in browser chrome and
+// Android status bar. Matching theme_color in manifest.ts is required for install prompts.
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#1d4ed8',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f59e0b' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
 }
 
 // SEO: Base metadata — title template ensures every page gets "| RoofVue Kent" suffix,
@@ -33,18 +37,20 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.i
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'RoofVue | Drone Roof Surveys Kent',
-    template: '%s | RoofVue Kent',
+    default: 'RoofVue | Independent Roof Surveys Kent',
+    template: '%s | RoofVue',
   },
   description:
-    'Professional drone roof surveys across all of Kent. RoofVue covers Maidstone, Canterbury, Folkestone, Dover and 50+ Kent towns. CAA-licensed pilots. No scaffolding. PDF report in 48hrs.',
+    'RoofVue provides independent, unbiased roof surveys across Kent. Residential surveys, drone inspections, home buyer reports, commercial assessments and insurance reports. From £149.',
   keywords: [
-    'drone roof survey Kent',
-    'roof inspection Kent',
-    'roof condition report Kent',
-    'CAA licensed drone pilots Kent',
-    'pre-purchase roof survey Kent',
+    'independent roof survey Kent',
+    'roof survey Kent',
+    'home buyer roof report Kent',
+    'commercial roof survey Kent',
+    'insurance roof assessment Kent',
+    'drone roof inspection Kent',
     'landlord roof inspection Kent',
+    'roof condition report Kent',
   ],
   alternates: {
     canonical: SITE_URL,
@@ -53,10 +59,26 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     siteName: 'RoofVue',
-    images: [{ url: '/images/roofvue-og.jpg', width: 1200, height: 630, alt: 'RoofVue — Drone Roof Surveys Kent' }],
+    images: [{ url: '/images/roofvue-og.jpg', width: 1200, height: 630, alt: 'RoofVue — Independent Roof Surveys Kent' }],
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
+  // SEO: Explicit icon declarations for all sizes — ensures Google finds and displays
+  // the favicon in SERPs. Without these, Google may show a generic globe icon.
+  icons: {
+    icon: [
+      { url: '/images/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/images/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/images/favicon.ico',
+    apple: [
+      { url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/icon.svg', color: '#f59e0b' },
+    ],
+  },
 }
 
 // SEO: WebSite JSON-LD with SearchAction — enables Google Sitelinks search box
@@ -66,7 +88,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'RoofVue',
   url: SITE_URL,
-  description: 'Professional drone roof surveys across Kent, UK',
+  description: 'Independent, unbiased roof surveys for homeowners, buyers, landlords and businesses across Kent.',
   potentialAction: {
     '@type': 'SearchAction',
     target: {

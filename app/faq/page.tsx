@@ -1,20 +1,17 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import FAQSchema from '@/components/seo/FAQSchema'
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema'
 import BreadcrumbNav from '@/components/ui/BreadcrumbNav'
-import CTABanner from '@/components/ui/CTABanner'
 import { getGlobalFAQs } from '@/lib/faq-data'
 import { getBreadcrumbs } from '@/lib/seo-utils'
+import { BUSINESS } from '@/lib/schema'
 
-// SEO: FAQ page targets informational search intent — captures users researching
-// before booking, building brand authority. All answers naturally mention Kent.
 export const metadata: Metadata = {
-  title: 'Roof Survey FAQs Kent | RoofVue Drone Inspections',
+  title: 'Roof Survey FAQs Kent | RoofVue — Common Questions Answered',
   description:
-    'Answers to common questions about drone roof surveys in Kent. RoofVue covers all Kent towns — no scaffolding, CAA-licensed, 48hr reports.',
-  alternates: {
-    canonical: '/faq',
-  },
+    'Answers to common questions about independent roof surveys in Kent. RoofVue covers all Kent towns — honest assessments, 48hr reports, no repair agenda.',
+  alternates: { canonical: '/faq' },
 }
 
 export default function FAQPage() {
@@ -26,55 +23,55 @@ export default function FAQPage() {
       <FAQSchema faqs={faqs} />
       <BreadcrumbSchema items={breadcrumbs} />
 
-      <div className="bg-slate-50 border-b border-slate-200 py-4 px-4">
+      <div className="bg-slate-50 border-b border-slate-200 py-3 px-4">
         <div className="max-w-7xl mx-auto">
           <BreadcrumbNav items={breadcrumbs} />
         </div>
       </div>
 
+      <section className="gradient-hero text-white py-16 px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="badge bg-accent-500/20 text-accent-300 mb-6">Common questions</div>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-slate-300 text-lg">
+            Everything you need to know about independent roof surveys with RoofVue. Can&apos;t find your answer?{' '}
+            <Link href="/contact" className="text-accent-400 hover:text-accent-300 underline">Get in touch.</Link>
+          </p>
+        </div>
+      </section>
+
       <section className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-            Frequently Asked Questions — Drone Roof Surveys in Kent
-          </h1>
-          <p className="text-lg text-slate-500 mb-10">
-            Everything you need to know about RoofVue&apos;s drone roof survey services across
-            Kent. Can&apos;t find your answer?{' '}
-            <a href="/contact" className="text-brand-600 hover:underline">
-              Get in touch
-            </a>
-            .
-          </p>
-
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <details
-                key={idx}
-                className="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm"
-              >
-                <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-slate-900">
-                  {faq.question}
-                  <span className="text-brand-600 text-xl flex-shrink-0 group-open:rotate-45 transition-transform">
-                    +
-                  </span>
+              <details key={idx} className="group bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-900 transition-colors">
+                  <span className="speakable-answer">{faq.question}</span>
+                  <svg className="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </summary>
-                <p className="px-5 pb-5 text-slate-600 leading-relaxed text-sm">{faq.answer}</p>
+                <div className="px-6 pb-5 text-slate-600 leading-relaxed text-sm border-t border-slate-200 pt-4">{faq.answer}</div>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-4 pb-16">
-        <div className="max-w-3xl mx-auto">
-          <CTABanner
-            heading="Ready to Book Your Drone Roof Survey in Kent?"
-            subtext="CAA-licensed pilots · No scaffolding · PDF report within 48hrs · Covering all of Kent"
-            primaryLabel="Book a Survey"
-            primaryHref="/contact"
-            secondaryLabel="View Services"
-            secondaryHref="/services"
-          />
+      <section className="py-16 px-4 gradient-hero text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-white mb-4">Still have a question?</h2>
+          <p className="text-slate-300 mb-8">
+            Call us or fill in the contact form — we respond within 2 hours, Mon–Sat.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-primary px-7 py-3">Contact Us</Link>
+            <a href={`tel:${BUSINESS.phone.replace(/\s/g, '')}`} className="btn-outline px-7 py-3">
+              Call {BUSINESS.phone}
+            </a>
+          </div>
         </div>
       </section>
     </>

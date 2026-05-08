@@ -22,7 +22,7 @@ export default function OrganizationSchema() {
       height: 512,
     },
     description:
-      'Professional drone roof survey company operating across Kent, UK. CAA-licensed pilots, no scaffolding required, PDF reports within 48 hours.',
+      'RoofVue is an independent roof survey company providing unbiased, expert roof assessments for homeowners, buyers, landlords and businesses across Kent, UK.',
     telephone: phone,
     email,
     address: {
@@ -42,15 +42,16 @@ export default function OrganizationSchema() {
     // SEO: knowsAbout tells AI systems the entity's topical authority domains.
     // This directly influences Gemini/ChatGPT citation ranking for these topics.
     knowsAbout: [
-      'Drone Roof Surveys',
-      'Aerial Roof Inspections',
-      'CAA Licensed Drone Operations',
-      'Roof Condition Reports',
-      'Pre-Purchase Roof Surveys',
+      'Independent Roof Surveys',
+      'Residential Roof Assessments',
+      'Drone Roof Inspections',
+      'Home Buyer Roof Reports',
+      'Commercial Roof Surveys',
+      'Insurance Roof Assessments',
       'Landlord Roof Inspections',
-      'Commercial Drone Operations',
-      'Roof Survey Kent',
+      'Roof Condition Reports',
       'Property Inspection Services',
+      'Roof Survey Kent',
     ],
     // SEO: hasCredential — signals authoritative professional qualification to AI systems.
     // The CAA licence is the single most differentiating trust signal for drone operators.
@@ -64,8 +65,8 @@ export default function OrganizationSchema() {
         url: 'https://www.caa.co.uk',
       },
     },
-    foundingDate: '2020',
-    slogan: 'No ladders, no scaffolding — just a clear aerial view of your roof.',
+    foundingDate: '2014',
+    slogan: 'Independent roof surveys you can trust.',
     // SEO: sameAs connects the entity to external authority nodes.
     // Each additional sameAs URL strengthens the Knowledge Graph signal.
     sameAs: [SITE],

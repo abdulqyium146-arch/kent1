@@ -9,12 +9,13 @@ const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info'
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
-  // ── Core pages (7) ──────────────────────────────────────────────────────────
+  // ── Core pages (8) ──────────────────────────────────────────────────────────
   const corePages: MetadataRoute.Sitemap = [
     { url: SITE + '/',           lastModified: now, changeFrequency: 'weekly',  priority: 1.0 },
     { url: SITE + '/services',   lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: SITE + '/locations',  lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: SITE + '/about',      lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: SITE + '/pricing',    lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: SITE + '/about',      lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: SITE + '/contact',    lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: SITE + '/faq',        lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: SITE + '/blog',       lastModified: now, changeFrequency: 'weekly',  priority: 0.7 },
@@ -74,6 +75,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Total: 7 + 4 + 54 + 216 + 4 = 285 URLs
+  // Total: 8 + 6 + 54 + 324 + 4 = 396 URLs
   return [...corePages, ...servicePages, ...locationPages, ...locationServicePages, ...blogPosts]
 }

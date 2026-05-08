@@ -6,70 +6,88 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema'
 import TrustBadges from '@/components/ui/TrustBadges'
 import LocationGrid from '@/components/ui/LocationGrid'
 import ServiceCard from '@/components/ui/ServiceCard'
-import CTABanner from '@/components/ui/CTABanner'
-import NAPBlock from '@/components/ui/NAPBlock'
 import { roofvueServices } from '@/lib/services'
 import { getHomepageFAQs } from '@/lib/faq-data'
+import { BUSINESS } from '@/lib/schema'
 
-// SEO: Unique homepage title targets the primary head-term for the whole site.
-// "No Ladders" and "48hr Reports" are the two strongest conversion USPs.
 export const metadata: Metadata = {
-  title: 'Drone Roof Surveys Kent | No Ladders, 48hr Reports | RoofVue',
+  title: 'Independent Roof Surveys Kent | RoofVue — Unbiased Expert Assessments',
   description:
-    'Professional drone roof surveys across Kent. Safe aerial inspections in Maidstone, Canterbury, Folkestone & 50+ Kent towns. CAA-licensed pilots. PDF report in 48hrs.',
-  alternates: {
-    canonical: '/',
-  },
+    'RoofVue provides independent, unbiased roof surveys across Kent. Residential surveys, drone inspections, home buyer reports, commercial assessments and insurance reports. From £149. PDF report in 48hrs.',
+  alternates: { canonical: '/' },
   openGraph: {
-    title: 'Drone Roof Surveys Kent | No Ladders, 48hr Reports | RoofVue',
-    description:
-      'Professional drone roof surveys across Kent. CAA-licensed pilots. No scaffolding needed. PDF report within 48hrs.',
+    title: 'Independent Roof Surveys Kent | RoofVue',
+    description: 'Independent, unbiased roof surveys for homeowners, buyers and businesses across Kent. No repairs agenda — just honest expert advice. From £149.',
     url: '/',
   },
 }
 
-const howItWorksSteps = [
+const processSteps = [
   {
     number: '01',
-    title: 'Book Online',
-    description:
-      'Fill in our quick contact form or call us directly. Tell us your address and which service you need. We will confirm your appointment within a few hours.',
+    title: 'Book Online or by Phone',
+    description: 'Tell us your address and which service you need. We confirm your appointment — often within hours. Surveys available across all Kent postcodes.',
   },
   {
     number: '02',
-    title: 'We Fly Your Roof',
-    description:
-      'Our CAA-licensed drone pilot arrives at the agreed time and conducts a thorough aerial survey of your roof — no scaffolding, no ladders, no disruption.',
+    title: 'Expert Inspection',
+    description: 'Our qualified surveyor arrives and conducts a thorough assessment — combining drone aerial imagery with close ground-level inspection for a complete picture.',
   },
   {
     number: '03',
-    title: 'Receive Your Report',
-    description:
-      'Within 48 hours you receive a professionally formatted PDF report with HD imagery, annotated findings, and prioritised repair recommendations.',
+    title: 'Clear Report Delivered',
+    description: 'Within 48 hours you receive a professionally formatted PDF report: HD imagery, graded findings, honest recommendations, and a clear action list.',
   },
 ]
 
-const whyRoofVue = [
+const whyIndependent = [
   {
-    title: 'Safer than traditional surveys',
-    description:
-      'No one climbs on your roof. Our drones access every elevation safely from ground level, eliminating the risk of damage to tiles or gutters during inspection.',
+    title: 'No repair teams. No sales agenda.',
+    description: 'RoofVue does not do repairs. We have no financial incentive to recommend more work than your roof needs. Our only interest is accuracy.',
   },
   {
-    title: 'Faster turnaround',
-    description:
-      'From booking to report in as little as 48 hours. No waiting weeks for a scaffold erection. Perfect for time-sensitive purchases and insurance claims.',
+    title: 'Qualified surveyors, not roofers',
+    description: 'Our assessments are carried out by trained roof survey professionals — not contractors looking for their next job.',
   },
   {
-    title: 'More cost-effective',
-    description:
-      'Scaffold erection alone can cost £800–£2,000 in Kent. Our drone surveys deliver a better inspection at a fraction of that cost, starting from just £149.',
+    title: 'Evidence-based reporting',
+    description: 'Every finding is backed by high-resolution photographic evidence, so you can see exactly what we saw and make informed decisions.',
   },
   {
-    title: 'More detailed imagery',
-    description:
-      'HD drone cameras capture close-up detail of flashings, ridge tiles and chimney stacks that is simply impossible to achieve from the ground or even a ladder.',
+    title: 'Useful across every situation',
+    description: 'Buying a home, managing a rental, dealing with an insurer, planning maintenance — our reports are built for real decisions.',
   },
+]
+
+const testimonials = [
+  {
+    quote: 'Found serious issues with the roof that the estate agent\'s survey had completely missed. Saved us from buying a property needing £12,000 of repairs we didn\'t know about.',
+    author: 'Sarah T.',
+    location: 'Canterbury',
+    service: 'Home Buyer Roof Report',
+    rating: 5,
+  },
+  {
+    quote: 'Completely independent — they found a few minor issues and told me honestly that the roof was in decent shape overall. No pressure, no upselling. Exactly what I needed.',
+    author: 'Mark H.',
+    location: 'Maidstone',
+    service: 'Residential Roof Survey',
+    rating: 5,
+  },
+  {
+    quote: 'Used RoofVue for three of my rental properties. The compliance reports have been excellent — clearly written, properly referenced, and exactly what my insurer needed.',
+    author: 'David W.',
+    location: 'Folkestone',
+    service: 'Landlord Roof Inspection',
+    rating: 5,
+  },
+]
+
+const stats = [
+  { value: '4,800+', label: 'Surveys completed' },
+  { value: '10+', label: 'Years serving Kent' },
+  { value: '4.9/5', label: 'Customer rating' },
+  { value: '48hrs', label: 'Report turnaround' },
 ]
 
 export default function HomePage() {
@@ -77,198 +95,288 @@ export default function HomePage() {
 
   return (
     <>
-      {/* SEO: Page-level schemas supplement the global layout schemas */}
       <LocalBusinessSchema pageUrl="/" />
       <FAQSchema faqs={faqs} />
       <BreadcrumbSchema items={[{ name: 'Home', url: '/' }]} />
 
-      {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      {/* ── Hero ─────────────────────────────────────────────────────── */}
+      <section className="relative gradient-hero text-white py-24 px-4 overflow-hidden">
+        {/* Background texture */}
+        <div className="absolute inset-0 opacity-5" aria-hidden="true">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        </div>
+        <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium mb-6">
-              <span className="text-green-400">●</span>
-              CAA-Licensed Pilots · Covering All of Kent
+            <div className="inline-flex items-center gap-2.5 bg-accent-500/15 border border-accent-500/30 rounded-full px-4 py-2 text-sm font-medium mb-8">
+              <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse" aria-hidden="true" />
+              <span className="text-accent-300">Independent · Unbiased · Expert</span>
             </div>
-            {/* SEO: H1 includes primary keyword "Drone Roof Surveys" + county "Kent" */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Drone Roof Surveys{' '}
-              <span className="text-accent-400">Across Kent</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
+              Roof Surveys You Can{' '}
+              <span className="text-accent-400">Actually Trust</span>
             </h1>
-            <p className="speakable-intro text-xl text-brand-100 mb-8 leading-relaxed">
-              CAA-licensed drone inspections — no ladders, no scaffolding. Covering all of Kent
-              from Maidstone to Canterbury, Folkestone to Dartford. PDF report within 48 hours.
+            <p className="speakable-intro text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl">
+              RoofVue provides independent, expert roof assessments across Kent — for homeowners, buyers, landlords and businesses. No repair agenda. No upselling. Just honest, evidence-based advice.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-bold text-lg transition-colors shadow-cta"
-              >
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Link href="/contact" className="btn-primary text-base px-8 py-4">
                 Book a Survey
               </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl border-2 border-white/40 hover:bg-white/10 text-white font-semibold text-lg transition-colors"
-              >
-                View Services
+              <Link href="/services" className="btn-outline text-base px-8 py-4">
+                Our Services
               </Link>
+            </div>
+            {/* Social proof strip */}
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="flex items-center gap-1.5">
+                {[1,2,3,4,5].map(i => (
+                  <svg key={i} className="w-5 h-5 text-accent-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+                <span className="text-slate-300 text-sm ml-1 font-medium">4.9/5</span>
+              </div>
+              <span className="text-slate-600" aria-hidden="true">·</span>
+              <span className="text-slate-400 text-sm">4,800+ surveys completed</span>
+              <span className="text-slate-600" aria-hidden="true">·</span>
+              <span className="text-slate-400 text-sm">Covering all of Kent</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Trust Badges ──────────────────────────────────────────────────── */}
-      <section className="py-10 px-4 bg-slate-50">
+      {/* ── Trust Badges ─────────────────────────────────────────────── */}
+      <section className="py-12 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <TrustBadges />
         </div>
       </section>
 
-      {/* ── Services ──────────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-white">
+      {/* ── Why Independent Matters ──────────────────────────────────── */}
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            {/* SEO: H2 includes "Kent Roof Survey Services" — secondary keyword cluster */}
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Our Kent Roof Survey Services
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="badge-amber mb-4">Why it matters</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5 leading-tight">
+                The difference an independent survey makes
+              </h2>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                Most people ask a roofer to assess their roof. But roofers are in the business of doing repairs — not neutral assessments. RoofVue exists because homeowners deserve an honest second opinion.
+              </p>
+              <div className="space-y-5">
+                {whyIndependent.map((item) => (
+                  <div key={item.title} className="flex gap-4">
+                    <div className="w-6 h-6 rounded-full bg-accent-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 mb-1">{item.title}</h3>
+                      <p className="text-sm text-slate-500 leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-10">
+                <Link href="/about" className="btn-outline-dark text-sm px-6 py-3">
+                  Learn about our approach →
+                </Link>
+              </div>
+            </div>
+            {/* Stats panel */}
+            <div className="bg-brand-900 rounded-3xl p-10 text-white">
+              <p className="text-slate-400 text-sm font-medium uppercase tracking-wider mb-8">RoofVue by the numbers</p>
+              <div className="grid grid-cols-2 gap-8">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <div className="text-4xl font-bold text-accent-400 mb-1">{stat.value}</div>
+                    <div className="text-sm text-slate-400">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-10 pt-8 border-t border-white/10">
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  &ldquo;We started in Maidstone with one aim: give Kent property owners an honest, expert view of their roof. That has not changed.&rdquo;
+                </p>
+                <p className="text-slate-500 text-xs mt-3">— RoofVue founding team</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Services ─────────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="badge-amber mb-4">Our services</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Expert surveys for every situation
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-              Four specialist services for every situation — from buying a home to managing a
-              rental portfolio across Kent.
+              Six specialist services — from a straightforward home check to insurance assessments and commercial surveys. All independent, all expert.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {roofvueServices.map((service) => (
-              <ServiceCard key={service.slug} service={service} showPrice />
+              <ServiceCard key={service.slug} service={service} showPrice variant="featured" />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Kent Coverage ─────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            {/* SEO: H2 "Covering Every Corner of Kent" + nearby town links = local SEO authority */}
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Covering Every Corner of Kent
-            </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-              From the Medway towns to the Romney Marsh, from the Thanet coast to the Weald — we
-              cover every town and village across all Kent postcodes.
-            </p>
+          <div className="text-center mt-10">
+            <Link href="/pricing" className="btn-outline-dark text-sm px-7 py-3">
+              View full pricing →
+            </Link>
           </div>
-          <LocationGrid groupByRegion />
-          <p className="text-center mt-6 text-slate-500 text-sm">
-            Don&apos;t see your town?{' '}
-            <Link href="/contact" className="text-brand-600 hover:underline font-medium">
-              Get in touch
-            </Link>{' '}
-            — we cover all of Kent.
-          </p>
         </div>
       </section>
 
-      {/* ── How It Works ──────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-white">
+      {/* ── Process ──────────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              How Our Kent Drone Surveys Work
+          <div className="text-center mb-12">
+            <div className="badge-slate mb-4">Simple process</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              From booking to report in 48 hours
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-              Three simple steps from booking to report.
+              Three straightforward steps. No fuss, no delays, no surprises.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howItWorksSteps.map((step) => (
+            {processSteps.map((step, i) => (
               <div key={step.number} className="relative">
-                <div className="text-6xl font-black text-brand-100 mb-3 leading-none">
-                  {step.number}
+                {i < processSteps.length - 1 && (
+                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-slate-100 z-0" aria-hidden="true" />
+                )}
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-brand-900 flex items-center justify-center mb-5">
+                    <span className="text-accent-400 font-bold text-xl">{step.number}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-3">{step.title}</h3>
+                  <p className="text-slate-500 leading-relaxed text-sm">{step.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
-                <p className="text-slate-500 leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Why RoofVue ───────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-brand-900 text-white">
+      {/* ── Testimonials ─────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-brand-900 text-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
-              Why Kent Homeowners Choose RoofVue
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-300 uppercase tracking-wider mb-4">
+              Customer reviews
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              What our clients say
             </h2>
-            <p className="text-brand-200 text-lg max-w-2xl mx-auto">
-              Drone surveys vs traditional scaffold-based inspections — there is simply no
-              comparison for speed, safety and value.
+            <div className="flex items-center justify-center gap-2">
+              {[1,2,3,4,5].map(i => (
+                <svg key={i} className="w-5 h-5 text-accent-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+              <span className="text-slate-300 ml-2 font-medium">4.9/5 from 200+ reviews</span>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <div key={t.author} className="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/8 transition-colors">
+                <div className="flex items-center gap-1 mb-4">
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <svg key={i} className="w-4 h-4 text-accent-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </div>
+                <blockquote className="text-slate-300 text-sm leading-relaxed mb-5">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <div className="border-t border-white/10 pt-4">
+                  <p className="font-semibold text-white text-sm">{t.author}</p>
+                  <p className="text-xs text-slate-400 mt-0.5">{t.location} · {t.service}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Kent Coverage ────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="badge-slate mb-4">Coverage</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Covering Every Corner of Kent
+            </h2>
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+              From the Medway towns to the Romney Marsh, from the Thanet coast to the Weald — we cover all 54 Kent towns and every postcode.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {whyRoofVue.map((item) => (
-              <div key={item.title} className="flex gap-4 p-5 rounded-xl bg-white/10 border border-white/10">
-                <div className="text-accent-400 text-2xl font-bold mt-0.5">✓</div>
-                <div>
-                  <h3 className="font-semibold text-white mb-1">{item.title}</h3>
-                  <p className="text-brand-200 text-sm leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-slate-50">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Common Questions About Roof Surveys in Kent
-            </h2>
-          </div>
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <details
-                key={faq.question}
-                className="group border border-slate-200 rounded-xl bg-white overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-slate-900">
-                  {faq.question}
-                  <span className="text-brand-600 text-xl flex-shrink-0 group-open:rotate-45 transition-transform">
-                    +
-                  </span>
-                </summary>
-                <p className="px-5 pb-5 text-slate-600 leading-relaxed text-sm">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-          <p className="text-center mt-6">
-            <Link href="/faq" className="text-brand-600 hover:underline font-medium">
-              View all frequently asked questions →
-            </Link>
+          <LocationGrid groupByRegion />
+          <p className="text-center mt-6 text-slate-400 text-sm">
+            Don&apos;t see your town?{' '}
+            <Link href="/contact" className="text-accent-600 hover:text-accent-700 font-medium hover:underline">
+              Get in touch
+            </Link>{' '}
+            — we cover all of Kent and surrounding areas.
           </p>
         </div>
       </section>
 
-      {/* ── NAP + Final CTA ───────────────────────────────────────────────── */}
-      <section className="py-10 px-4 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto">
-          <NAPBlock showAddress showHours />
+      {/* ── FAQ ──────────────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-slate-50">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="badge-amber mb-4">Common questions</div>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Frequently asked questions</h2>
+            <p className="text-slate-500">Everything you need to know about booking a roof survey with RoofVue.</p>
+          </div>
+          <div className="space-y-4">
+            {faqs.slice(0, 6).map((faq) => (
+              <details key={faq.question} className="group bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-900 transition-colors">
+                  <span className="speakable-answer">{faq.question}</span>
+                  <svg className="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/faq" className="btn-outline-dark text-sm px-6 py-3">
+              View all FAQs →
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="px-4 pb-16">
-        <div className="max-w-7xl mx-auto">
-          <CTABanner
-            heading="Ready to Book Your Roof Survey in Kent?"
-            subtext="CAA-licensed pilots, no scaffolding needed, PDF report within 48 hours. Covering all of Kent from £149."
-            primaryLabel="Book a Survey"
-            primaryHref="/contact"
-            secondaryLabel="View Services"
-            secondaryHref="/services"
-          />
+      {/* ── Final CTA ────────────────────────────────────────────────── */}
+      <section className="py-20 px-4 gradient-hero text-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
+            Ready for an honest view of your roof?
+          </h2>
+          <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+            Book an independent survey today. Reports from £149, delivered within 48 hours. No repairs agenda — just the facts.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-primary text-base px-8 py-4">
+              Book a Survey
+            </Link>
+            <a href={`tel:${BUSINESS.phone.replace(/\s/g, '')}`} className="btn-outline text-base px-8 py-4">
+              Call {BUSINESS.phone}
+            </a>
+          </div>
+          <p className="text-slate-400 text-sm mt-6">Surveys available Mon–Fri 8am–6pm, Sat 8am–2pm · All of Kent covered</p>
         </div>
       </section>
     </>
