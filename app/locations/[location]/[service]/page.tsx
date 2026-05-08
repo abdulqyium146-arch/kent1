@@ -18,7 +18,7 @@ import {
   getBreadcrumbs,
 } from '@/lib/seo-utils'
 
-// SEO: 216 static params (54 towns × 4 services) — every location+service combination
+// SEO: 324 static params (54 towns × 6 services) — every location+service combination
 // gets a pre-rendered page targeting the exact "[Service] in [Town], Kent" keyword
 export function generateStaticParams() {
   return kentLocations.flatMap((l) =>
@@ -92,9 +92,21 @@ export default function LocationServicePage({
             {service.name} in {location.name}, Kent
           </h1>
           <p className="text-brand-100 text-lg max-w-2xl leading-relaxed">
-            {service.tagline}. CAA-licensed drone pilots covering {location.name} and surrounding{' '}
-            {location.postcodePrefix} postcodes. PDF report within 48 hours.
+            {service.tagline}. Completely independent — no repair teams, no sales agenda. Covering{' '}
+            {location.name} and surrounding {location.postcodePrefix} postcodes. PDF report within
+            48 hours.
           </p>
+          <div className="flex flex-wrap gap-3 mt-6">
+            <span className="bg-accent-500/20 text-accent-300 border border-accent-500/30 px-3 py-1 rounded-full text-sm font-medium">
+              {service.price}
+            </span>
+            <span className="bg-white/10 text-white/80 border border-white/20 px-3 py-1 rounded-full text-sm">
+              Independent Survey
+            </span>
+            <span className="bg-white/10 text-white/80 border border-white/20 px-3 py-1 rounded-full text-sm">
+              48hr PDF Report
+            </span>
+          </div>
         </div>
       </section>
 
@@ -106,7 +118,7 @@ export default function LocationServicePage({
               <p>
                 RoofVue&apos;s <strong className="text-slate-800">{service.name}</strong> service
                 is available across {location.name} and all surrounding {location.postcodePrefix}{' '}
-                postcodes. Whether you need to inspect a{' '}
+                postcodes. Whether you need to assess a{' '}
                 <strong className="text-slate-800">{propertyType1}</strong> near{' '}
                 <strong className="text-slate-800">{landmark1}</strong>, a{' '}
                 <strong className="text-slate-800">{propertyType2}</strong> in the town centre, or
@@ -119,8 +131,8 @@ export default function LocationServicePage({
                 ) : (
                   <>property in the wider {location.region} area</>
                 )}
-                , our CAA-licensed pilots deliver a safe, non-intrusive aerial inspection with no
-                scaffolding required.
+                , our independent surveyors deliver a thorough, unbiased assessment with no
+                commercial agenda — we have no repair teams and no contractor affiliates.
               </p>
               <p>
                 {location.description} Our Maidstone base gives us excellent coverage across all
@@ -129,49 +141,67 @@ export default function LocationServicePage({
               </p>
               <p>
                 {service.tagline}. Every survey includes a professionally formatted PDF report
-                delivered to your inbox within 48 hours, containing HD annotated imagery and
-                written condition assessments for every aspect of the roof inspected.
+                delivered to your inbox within 48 hours, with condition assessments, HD imagery,
+                and a prioritised action list.
               </p>
               <p>
                 <strong className="text-slate-800">
                   {service.name} in {location.name}: {service.price}
                 </strong>
-                . Contact us for an exact quote tailored to your property size and roof complexity.
-                The price includes all travel to {location.name}, the survey itself, and the full
-                PDF report.
+                . The price includes all travel to {location.name}, the survey, and the full PDF
+                report. Contact us for an exact quote tailored to your property.
               </p>
             </div>
 
             {/* ── Price + CTA sidebar ─────────────────────────────────────── */}
             <div className="lg:col-span-1">
-              <div className="sticky top-6 p-6 rounded-xl border border-brand-200 bg-brand-50">
-                <p className="text-sm font-medium text-brand-700 mb-1">{service.name}</p>
-                <p className="text-3xl font-bold text-slate-900 mb-1">{service.price}</p>
-                <p className="text-sm text-slate-500 mb-4">in {location.name}, Kent</p>
-                <ul className="space-y-1.5 text-sm text-slate-600 mb-5">
-                  <li className="flex gap-2">
-                    <span className="text-green-500 font-bold">✓</span>
-                    {service.duration}
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-green-500 font-bold">✓</span>
-                    {service.deliverable}
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-green-500 font-bold">✓</span>
-                    CAA-licensed drone pilots
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-green-500 font-bold">✓</span>
-                    No scaffolding required
-                  </li>
-                </ul>
-                <Link
-                  href="/contact"
-                  className="w-full inline-flex items-center justify-center px-5 py-3 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold transition-colors"
-                >
-                  Book in {location.name} Today
-                </Link>
+              <div className="sticky top-6 rounded-xl overflow-hidden shadow-hover">
+                <div className="bg-brand-900 p-5">
+                  <p className="text-accent-400 text-xs font-semibold uppercase tracking-wider mb-1">{service.name}</p>
+                  <p className="speakable-price text-3xl font-bold text-white mb-0.5">{service.price}</p>
+                  <p className="text-slate-400 text-sm">in {location.name}, Kent</p>
+                </div>
+                <div className="bg-white border border-slate-200 border-t-0 p-5">
+                  <ul className="space-y-2 text-sm text-slate-700 mb-5">
+                    <li className="flex gap-2">
+                      <span className="text-accent-500 font-bold mt-0.5">✓</span>
+                      {service.duration}
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-accent-500 font-bold mt-0.5">✓</span>
+                      {service.deliverable}
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-green-500 font-bold mt-0.5">✓</span>
+                      Completely independent survey
+                    </li>
+                    {service.slug.includes('drone') && (
+                      <>
+                        <li className="flex gap-2">
+                          <span className="text-green-500 font-bold mt-0.5">✓</span>
+                          CAA-licensed drone pilots
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="text-green-500 font-bold mt-0.5">✓</span>
+                          No scaffolding required
+                        </li>
+                      </>
+                    )}
+                    <li className="flex gap-2">
+                      <span className="text-green-500 font-bold mt-0.5">✓</span>
+                      No repair team — no conflict of interest
+                    </li>
+                  </ul>
+                  <Link
+                    href="/contact"
+                    className="w-full inline-flex items-center justify-center px-5 py-3 rounded-lg bg-accent-500 hover:bg-accent-600 text-white font-semibold transition-colors"
+                  >
+                    Book in {location.name} Today
+                  </Link>
+                  <p className="text-center text-xs text-slate-400 mt-3">
+                    Call <a href="tel:+443335675656" className="text-accent-600 hover:underline font-medium">+44 333 567 5656</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -189,7 +219,7 @@ export default function LocationServicePage({
               <ul className="space-y-3">
                 {service.whatIsIncluded.map((item) => (
                   <li key={item} className="flex gap-3 text-slate-700">
-                    <span className="text-brand-600 font-bold mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-accent-500 font-bold mt-0.5 flex-shrink-0">✓</span>
                     <span className="text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -222,7 +252,7 @@ export default function LocationServicePage({
             {service.targetAudience.map((audience) => (
               <span
                 key={audience}
-                className="bg-brand-50 text-brand-700 border border-brand-200 px-4 py-2 rounded-lg text-sm font-medium capitalize"
+                className="bg-slate-100 text-slate-700 border border-slate-200 px-4 py-2 rounded-lg text-sm font-medium capitalize"
               >
                 {audience}
               </span>
@@ -245,7 +275,7 @@ export default function LocationServicePage({
               >
                 <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-slate-900">
                   {faq.question}
-                  <span className="text-brand-600 text-xl flex-shrink-0 group-open:rotate-45 transition-transform">
+                  <span className="text-accent-500 text-xl flex-shrink-0 group-open:rotate-45 transition-transform">
                     +
                   </span>
                 </summary>
@@ -269,7 +299,7 @@ export default function LocationServicePage({
                 <Link
                   key={nearby.slug}
                   href={`/locations/${nearby.slug}/${service.slug}`}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-200 text-sm text-brand-700 hover:bg-brand-50 hover:border-brand-300 transition-colors font-medium"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-200 text-sm text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-colors font-medium"
                 >
                   {service.shortName} in {nearby.name}
                 </Link>
