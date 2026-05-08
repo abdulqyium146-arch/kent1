@@ -48,10 +48,11 @@ export default function PricingPage() {
       <section className="gradient-hero text-white py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="badge bg-accent-500/20 text-accent-300 mb-6">Transparent pricing</div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Honest surveys. Honest prices.
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight text-balance">
+            Honest Surveys.{' '}
+            <span className="text-accent-400">Honest Prices.</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-xl text-white/80 max-w-2xl leading-relaxed">
             No hidden charges. No upselling. Fixed quotes before you book. All surveys include a full HD report delivered within 48 hours.
           </p>
         </div>

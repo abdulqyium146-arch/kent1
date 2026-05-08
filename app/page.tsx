@@ -108,15 +108,15 @@ export default function HomePage() {
         </div>
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2.5 bg-accent-500/15 border border-accent-500/30 rounded-full px-4 py-2 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2.5 bg-accent-500/20 border border-accent-500/40 rounded-full px-4 py-2 text-sm font-semibold mb-8">
               <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse" aria-hidden="true" />
               <span className="text-accent-300">Independent · Unbiased · Expert</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance">
               Roof Surveys You Can{' '}
               <span className="text-accent-400">Actually Trust</span>
             </h1>
-            <p className="speakable-intro text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl">
+            <p className="speakable-intro text-xl text-white/80 mb-8 leading-relaxed max-w-2xl">
               RoofVue provides independent, expert roof assessments across Kent — for homeowners, buyers, landlords and businesses. No repair agenda. No upselling. Just honest, evidence-based advice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">

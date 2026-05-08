@@ -62,10 +62,11 @@ export default function AboutPage() {
       <section className="gradient-hero text-white py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="badge bg-accent-500/20 text-accent-300 mb-6">Our story</div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Independent roof surveys — because honest advice matters
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight text-balance">
+            Independent roof surveys —{' '}
+            <span className="text-accent-400">because honest advice matters</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-xl text-white/80 max-w-2xl leading-relaxed">
             RoofVue was built on a simple principle: homeowners and buyers deserve a genuinely independent view of their roof — not an assessment from someone who profits from the repairs.
           </p>
         </div>

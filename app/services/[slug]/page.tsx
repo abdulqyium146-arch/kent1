@@ -74,14 +74,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="gradient-hero text-white py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="inline-flex items-center gap-2.5 bg-accent-500/15 border border-accent-500/30 rounded-full px-4 py-2 text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2.5 bg-accent-500/20 border border-accent-500/40 rounded-full px-4 py-2 text-sm font-semibold mb-6">
             <span className="text-accent-300">{service.icon}</span>
-            <span className="text-slate-300">{service.price} · {service.duration}</span>
+            <span className="text-accent-300">{service.price} · {service.duration}</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-5 leading-tight max-w-3xl">
-            {service.name} in Kent
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight text-balance max-w-3xl">
+            <span className="text-accent-400">{service.name}</span>{' '}
+            in Kent
           </h1>
-          <p className="speakable-intro text-slate-300 text-xl max-w-2xl leading-relaxed">
+          <p className="speakable-intro text-white/80 text-xl max-w-2xl leading-relaxed">
             {service.tagline}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">

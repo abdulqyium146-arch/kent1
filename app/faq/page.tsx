@@ -29,15 +29,16 @@ export default function FAQPage() {
         </div>
       </div>
 
-      <section className="gradient-hero text-white py-16 px-4">
+      <section className="gradient-hero text-white py-20 px-4">
         <div className="max-w-3xl mx-auto">
           <div className="badge bg-accent-500/20 text-accent-300 mb-6">Common questions</div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Frequently Asked Questions
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight text-balance">
+            Frequently Asked Questions About{' '}
+            <span className="text-accent-400">Independent Roof Surveys</span>
           </h1>
-          <p className="text-slate-300 text-lg">
-            Everything you need to know about independent roof surveys with RoofVue. Can&apos;t find your answer?{' '}
-            <Link href="/contact" className="text-accent-400 hover:text-accent-300 underline">Get in touch.</Link>
+          <p className="text-white/80 text-lg leading-relaxed">
+            Everything you need to know about roof surveys with RoofVue. Can&apos;t find your answer?{' '}
+            <Link href="/contact" className="text-accent-400 hover:text-accent-300 underline font-medium">Get in touch.</Link>
           </p>
         </div>
       </section>

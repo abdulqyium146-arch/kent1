@@ -54,10 +54,11 @@ export default function ContactPage() {
       <section className="gradient-hero text-white py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="badge bg-accent-500/20 text-accent-300 mb-6">Book online — instant confirmation</div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-5">
-            Book Your Roof Survey
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight text-balance">
+            Book Your{' '}
+            <span className="text-accent-400">Roof Survey</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-xl text-white/80 max-w-2xl leading-relaxed">
             Pick a date and time that suits you — your booking is confirmed instantly. Fixed prices,
             completely independent, no sales agenda.
           </p>

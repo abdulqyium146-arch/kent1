@@ -82,28 +82,29 @@ export default function LocationServicePage({
       </div>
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="py-14 px-4 bg-gradient-to-br from-brand-900 to-brand-700 text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium mb-4">
+      <section className="py-20 px-4 bg-gradient-to-br from-brand-900 to-brand-700 text-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-accent-500/20 border border-accent-500/40 rounded-full px-4 py-1.5 text-sm font-semibold text-accent-300 mb-5">
             {location.region} · {location.postcodePrefix} · {service.price}
           </div>
           {/* SEO: H1 = "[Service.name] in [Town], Kent" — exact match for location+service keyword */}
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            {service.name} in {location.name}, Kent
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight text-balance">
+            <span className="text-accent-400">{service.name}</span>{' '}
+            in <span className="text-accent-400">{location.name}</span>, Kent
           </h1>
-          <p className="text-brand-100 text-lg max-w-2xl leading-relaxed">
+          <p className="text-white/80 text-xl max-w-2xl leading-relaxed">
             {service.tagline}. Completely independent — no repair teams, no sales agenda. Covering{' '}
             {location.name} and surrounding {location.postcodePrefix} postcodes. PDF report within
             48 hours.
           </p>
-          <div className="flex flex-wrap gap-3 mt-6">
-            <span className="bg-accent-500/20 text-accent-300 border border-accent-500/30 px-3 py-1 rounded-full text-sm font-medium">
+          <div className="flex flex-wrap gap-3 mt-7">
+            <span className="bg-accent-500/20 text-accent-300 border border-accent-500/40 px-3 py-1.5 rounded-full text-sm font-semibold">
               {service.price}
             </span>
-            <span className="bg-white/10 text-white/80 border border-white/20 px-3 py-1 rounded-full text-sm">
+            <span className="bg-white/10 text-white border border-white/25 px-3 py-1.5 rounded-full text-sm font-medium">
               Independent Survey
             </span>
-            <span className="bg-white/10 text-white/80 border border-white/20 px-3 py-1 rounded-full text-sm">
+            <span className="bg-white/10 text-white border border-white/25 px-3 py-1.5 rounded-full text-sm font-medium">
               48hr PDF Report
             </span>
           </div>

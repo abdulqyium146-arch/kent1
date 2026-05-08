@@ -40,10 +40,11 @@ export default function ServicesPage() {
       <section className="gradient-hero text-white py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="badge bg-accent-500/20 text-accent-300 mb-6">All services</div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Independent roof surveys for every situation
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight text-balance">
+            Independent Roof Surveys{' '}
+            <span className="text-accent-400">for Every Situation</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-xl text-white/80 max-w-2xl leading-relaxed">
             Six specialist services, one principle: independent, unbiased, expert assessment with no repairs agenda. Choose the service that fits your situation.
           </p>
         </div>
