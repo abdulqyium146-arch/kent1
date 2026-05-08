@@ -56,6 +56,8 @@ export default function Header() {
             width={40}
             height={40}
             priority
+            quality={90}
+            sizes="40px"
             className="w-10 h-10 object-contain"
           />
           <div className="leading-none">

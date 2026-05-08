@@ -73,8 +73,10 @@ export default function Footer() {
                 alt="RoofVue logo"
                 width={40}
                 height={40}
-                className="w-10 h-10 object-contain"
+                quality={90}
+                sizes="40px"
                 loading="lazy"
+                className="w-10 h-10 object-contain"
               />
               <div className="leading-none">
                 <div className="font-bold text-white text-lg font-heading">RoofVue</div>

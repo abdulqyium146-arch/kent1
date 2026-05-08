@@ -6,6 +6,9 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    // imageSizes covers fixed-size images (logo 40px, icons, thumbnails)
+    // Next.js uses this list to pick the nearest size when sizes="40px"
+    imageSizes: [16, 32, 40, 48, 64, 80, 96, 128, 192, 256],
     remotePatterns: [],
   },
 

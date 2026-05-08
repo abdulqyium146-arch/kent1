@@ -14,6 +14,12 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: 'en-GB',
     icons: [
       {
+        src: '/images/logo.webp',
+        sizes: '842x840',
+        type: 'image/webp',
+        purpose: 'any',
+      },
+      {
         src: '/images/android-chrome-192x192.png',
         sizes: '192x192',
         type: 'image/png',
