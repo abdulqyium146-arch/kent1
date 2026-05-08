@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { BUSINESS } from '@/lib/schema'
 
 const navServices = [
@@ -47,13 +48,16 @@ export default function Header() {
 
       {/* Main nav */}
       <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
-          <div className="w-9 h-9 bg-brand-900 rounded-xl flex items-center justify-center group-hover:bg-brand-700 transition-colors">
-            <svg className="w-5 h-5 text-accent-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-            </svg>
-          </div>
+        {/* Logo — priority preloads the image as LCP-critical resource */}
+        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group" aria-label="RoofVue — Independent Roof Surveys Kent, home">
+          <Image
+            src="/images/logo.webp"
+            alt="RoofVue — Independent Roof Surveys Kent"
+            width={40}
+            height={40}
+            priority
+            className="w-10 h-10 object-contain"
+          />
           <div className="leading-none">
             <div className="font-heading font-bold text-brand-900 text-lg tracking-tight">RoofVue</div>
             <div className="text-xs text-slate-400 font-medium">Independent Roof Surveys</div>

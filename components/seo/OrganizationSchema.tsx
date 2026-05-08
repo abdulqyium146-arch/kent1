@@ -17,9 +17,12 @@ export default function OrganizationSchema() {
     url: SITE,
     logo: {
       '@type': 'ImageObject',
-      url: `${SITE}/images/roofvue-logo.png`,
-      width: 512,
-      height: 512,
+      url: `${SITE}/images/logo.webp`,
+      contentUrl: `${SITE}/images/logo.webp`,
+      width: 842,
+      height: 840,
+      encodingFormat: 'image/webp',
+      name: 'RoofVue logo',
     },
     description:
       'RoofVue is an independent roof survey company providing unbiased, expert roof assessments for homeowners, buyers, landlords and businesses across Kent, UK.',

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { BUSINESS } from '@/lib/schema'
 
 const WHATSAPP_URL = 'https://wa.me/443335675656?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20roof%20survey%20in%20Kent.'
@@ -66,12 +67,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 bg-accent-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-              </div>
+            <Link href="/" className="flex items-center gap-2.5 mb-5" aria-label="RoofVue home">
+              <Image
+                src="/images/logo.webp"
+                alt="RoofVue logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain"
+                loading="lazy"
+              />
               <div className="leading-none">
                 <div className="font-bold text-white text-lg font-heading">RoofVue</div>
                 <div className="text-xs text-slate-400 mt-0.5">Independent Roof Surveys</div>

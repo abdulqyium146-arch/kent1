@@ -33,6 +33,12 @@ export default function LocalBusinessSchema({
     telephone: phone,
     email,
     image: `${siteUrl}/images/roofvue-og.jpg`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/images/logo.webp`,
+      width: 842,
+      height: 840,
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality,
