@@ -27,7 +27,7 @@ export default function ContactPage() {
             Book your independent roof survey
           </h1>
           <p className="text-xl text-slate-300 max-w-xl leading-relaxed">
-            We respond within 2 hours Mon–Sat. Fixed quotes before you book. No call centres — you speak to us directly.
+            Available 24/7. Fixed quotes before you book. No call centres — you speak to us directly.
           </p>
         </div>
       </section>
@@ -54,7 +54,7 @@ export default function ContactPage() {
                     <div>
                       <div className="font-semibold text-slate-900 text-sm mb-0.5">Phone</div>
                       <div className="text-accent-600 font-bold text-lg">{BUSINESS.phone}</div>
-                      <div className="text-xs text-slate-400 mt-1">Mon–Fri 8am–6pm, Sat 8am–2pm</div>
+                      <div className="text-xs text-slate-400 mt-1">Available 24/7</div>
                     </div>
                   </a>
 

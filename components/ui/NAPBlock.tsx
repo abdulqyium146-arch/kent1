@@ -62,16 +62,10 @@ export default function NAPBlock({
       )}
 
       {showHours && (
-        <div className="space-y-0.5">
-          <p>
-            <meta itemProp="openingHours" content="Mo-Fr 08:00-18:00" />
-            Mon–Fri: 8am–6pm
-          </p>
-          <p>
-            <meta itemProp="openingHours" content="Sa 08:00-14:00" />
-            Sat: 8am–2pm
-          </p>
-        </div>
+        <p>
+          <meta itemProp="openingHours" content="Mo-Su 00:00-23:59" />
+          Open 24/7 — 7 days a week
+        </p>
       )}
     </div>
   )

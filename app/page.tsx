@@ -376,7 +376,7 @@ export default function HomePage() {
               Call {BUSINESS.phone}
             </a>
           </div>
-          <p className="text-slate-400 text-sm mt-6">Surveys available Mon–Fri 8am–6pm, Sat 8am–2pm · All of Kent covered</p>
+          <p className="text-slate-400 text-sm mt-6">Available 24/7 · All of Kent covered</p>
         </div>
       </section>
     </>

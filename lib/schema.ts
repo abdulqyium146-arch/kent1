@@ -14,7 +14,7 @@ export const BUSINESS = {
   description:
     'RoofVue is an independent roof survey company providing unbiased, expert roof assessments for homeowners, buyers, landlords and businesses across Kent and the South East.',
   geo: { lat: 51.2728, lng: 0.5217 },
-  openingHours: ['Mo-Fr 08:00-18:00', 'Sa 08:00-14:00'],
+  openingHours: ['Mo-Su 00:00-23:59'],
   priceRange: '££',
   foundingYear: '2014',
   areaServed: [
