@@ -121,6 +121,17 @@ export default function Header() {
           >
             {BUSINESS.phone}
           </a>
+          <a
+            href="https://calendly.com/roofvue"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-slate-600 hover:text-accent-600 transition-colors flex items-center gap-1.5"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Book Online
+          </a>
           <Link href="/contact" className="btn-primary text-sm px-5 py-2.5">
             Book a Survey
           </Link>
@@ -163,14 +174,26 @@ export default function Header() {
             <Link href="/blog" className="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50" onClick={() => setMobileOpen(false)}>Blog</Link>
             <Link href="/faq" className="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50" onClick={() => setMobileOpen(false)}>FAQ</Link>
             <div className="pt-3 space-y-2">
+              <a
+                href="https://calendly.com/roofvue"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-semibold text-sm transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Book Online — Instant Confirmation
+              </a>
               <a href={`tel:${BUSINESS.phone.replace(/\s/g, '')}`} className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl border-2 border-brand-900 text-brand-900 font-semibold text-sm hover:bg-brand-900 hover:text-white transition-colors">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
                 </svg>
                 {BUSINESS.phone}
               </a>
-              <Link href="/contact" className="btn-primary w-full justify-center" onClick={() => setMobileOpen(false)}>
-                Book a Survey
+              <Link href="/contact" className="w-full flex items-center justify-center px-4 py-3 rounded-xl border border-slate-200 text-slate-700 font-medium text-sm hover:bg-slate-50 transition-colors" onClick={() => setMobileOpen(false)}>
+                Send a Message
               </Link>
             </div>
           </div>

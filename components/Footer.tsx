@@ -182,8 +182,19 @@ export default function Footer() {
             <p className="text-sm text-slate-400 mb-5 leading-relaxed">
               Independent roof surveys across Kent. Fast turnaround, honest advice, no sales agenda.
             </p>
-            <Link href="/contact" className="btn-primary w-full justify-center mb-4 text-sm">
-              Book Your Survey
+            <a
+              href="https://calendly.com/roofvue"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary w-full justify-center mb-3 text-sm flex items-center gap-2"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Book Online — Instant
+            </a>
+            <Link href="/contact" className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300 text-sm font-medium transition-colors mb-3">
+              Send a Message
             </Link>
             <a href={`tel:${BUSINESS.phone.replace(/\s/g, '')}`} className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-slate-700 text-slate-300 hover:border-accent-500 hover:text-accent-400 text-sm font-medium transition-colors">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
