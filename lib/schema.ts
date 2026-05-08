@@ -1,6 +1,6 @@
 export const BUSINESS = {
   name: 'Kent Roof Inspections',
-  phone: '01622 001234',
+  phone: '+44 333 567 5656',
   email: 'info@kentroofing.co.uk',
   address: {
     street: '12 Mill Street',

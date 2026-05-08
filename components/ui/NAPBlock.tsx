@@ -13,7 +13,7 @@ export default function NAPBlock({
   showHours = true,
   className = '',
 }: NAPBlockProps) {
-  const phone = process.env.NEXT_PUBLIC_PHONE ?? '01622 000000'
+  const phone = process.env.NEXT_PUBLIC_PHONE ?? '+44 333 567 5656'
   const email = process.env.NEXT_PUBLIC_EMAIL ?? 'info@roofvue.co.uk'
 
   return (

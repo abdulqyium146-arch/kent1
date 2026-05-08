@@ -14,7 +14,7 @@ export default function LocalBusinessSchema({
   overrideLocation,
   pageUrl,
 }: LocalBusinessSchemaProps) {
-  const phone = process.env.NEXT_PUBLIC_PHONE ?? ''
+  const phone = process.env.NEXT_PUBLIC_PHONE ?? '+44 333 567 5656'
   const email = process.env.NEXT_PUBLIC_EMAIL ?? 'info@roofvue.co.uk'
   const postcode = process.env.NEXT_PUBLIC_POSTCODE ?? 'ME14 1XX'
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')

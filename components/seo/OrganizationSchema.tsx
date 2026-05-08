@@ -6,7 +6,7 @@
 // "drone roof surveys Kent" queries without ambiguity.
 export default function OrganizationSchema() {
   const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://citywideroofing.info').replace(/\/$/, '')
-  const phone = process.env.NEXT_PUBLIC_PHONE ?? ''
+  const phone = process.env.NEXT_PUBLIC_PHONE ?? '+44 333 567 5656'
   const email = process.env.NEXT_PUBLIC_EMAIL ?? 'info@roofvue.co.uk'
 
   const schema = {

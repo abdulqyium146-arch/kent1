@@ -34,7 +34,7 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className="text-xl font-bold text-slate-900 mb-2">Request Received!</h3>
-        <p className="text-slate-600">We&apos;ll be in touch within 2 hours (Mon–Sat). For urgent queries, call us on <a href="tel:01622001234" className="text-brand-600 font-medium">01622 001234</a>.</p>
+        <p className="text-slate-600">We&apos;ll be in touch within 2 hours (Mon–Sat). For urgent queries, call us on <a href="tel:+443335675656" className="text-brand-600 font-medium">+44 333 567 5656</a>.</p>
       </div>
     )
   }
